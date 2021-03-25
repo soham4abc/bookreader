@@ -1,5 +1,6 @@
 import { css, html, LitElement } from 'lit-element';
 import { nothing } from 'lit-html';
+import { ResizeObserver as roPolyfill } from '@juggle/resize-observer';
 import SearchProvider from './search/search-provider.js';
 import DownloadProvider from './downloads/downloads-provider.js';
 import VisualAdjustmentProvider from './visual-adjustments/visual-adjustments-provider.js';
@@ -8,6 +9,8 @@ import SharingProvider from '../ItemNavigator/providers/sharing.js';
 import BRFullscreenMgr from './br-fullscreen-mgr.js';
 import { Book } from './BookModel.js';
 import bookLoader from './assets/book-loader.js';
+
+const ResizeObserver = window.ResizeObserver || roPolyfill;
 
 const events = {
   menuUpdated: 'menuUpdated',
